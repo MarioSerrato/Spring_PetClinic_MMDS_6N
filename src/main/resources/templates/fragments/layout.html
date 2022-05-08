@@ -44,24 +44,29 @@
                       </a>
                   </li>
   
-                  <li th:replace="::menuItem ('/','home','home page','home','Inicio')">
+                  <li th:replace="::menuItem ('/','home','Pagina Inicio','home','Inicio')">
                       <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                      <span>Home</span>
+                      <span>Inicio</span>
                   </li>
   
-                  <li th:replace="::menuItem ('/owners/find','owners','find owners','search','Lista de Dueños')">
+                  <li th:replace="::menuItem ('/owners/find','owners','Buscar Dueños','search','Lista de Dueños')">
                       <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                      <span>Find owners</span>
+                      <span>Busqueda de Dueños</span>
                   </li>
   
-                  <li th:replace="::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarios')">
+                  <li th:replace="::menuItem ('/vets.html','vets','veterinarios','th-list','Veterinarios')">
                       <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-                      <span>Veterinarians</span>
+                      <span>Veterinarios</span>
                   </li>
   
-                  <li th:replace="::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','warning-sign','Error')">
+                  <li th:replace="::menuItem ('/oups','error','Algo Salio Mal!','warning-sign','Error')">
                       <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
                       <span>Error</span>
+                  </li>
+
+                  <li th:replace="::menuItem ('/owners/report','Reporte','Reporte de Actividad!','alert','Reporte')">
+                      <span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
+                      <span>Reporte</span>
                   </li>
   
               </ul>

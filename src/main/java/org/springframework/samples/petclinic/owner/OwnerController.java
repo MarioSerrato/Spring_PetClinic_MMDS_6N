@@ -74,29 +74,14 @@ class OwnerController {
         return "owners/findOwners";
     }
 
-    @GetMapping("/owners")
-    public String processFindForm(Owner owner, BindingResult result, Map<String, Object> model) {
-
-        // allow parameterless GET request for /owners to return all records
-        if (owner.getLastName() == null) {
-            owner.setLastName(""); // empty string signifies broadest possible search
-        }
+    @GetMapping("/owners/report")
+    public String processOwnerReport(Owner owner, BindingResult result, Map<String, Object> model) {
 
         // find owners by last name
-        Collection<Owner> results = this.owners.findByLastName(owner.getLastName());
-        if (results.isEmpty()) {
-            // no owners found
-            result.rejectValue("lastName", "notFound", "not found");
-            return "owners/findOwners";
-        } else if (results.size() == 1) {
-            // 1 owner found
-            owner = results.iterator().next();
-            return "redirect:/owners/" + owner.getId();
-        } else {
+        Collection<Owner> results = this.owners.findAll();
             // multiple owners found
             model.put("selections", results);
-            return "owners/ownersList";
-        }
+            return "owners/ownersReport";
     }
 
     @GetMapping("/owners/{ownerId}/edit")
